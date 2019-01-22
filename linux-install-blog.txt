@@ -1,0 +1,220 @@
+﻿# linux下安装python3
+mkdir /usr/local/python3
+
+wget https://www.python.org/ftp/python/3.6.0/Python-3.6.0.tgz
+tar -zxvf Python-3.6.0.tgz
+
+
+./configure --prefix=/usr/local/python3
+
+make && make install
+
+# python链接文件路径
+cd /usr/bin
+ls | grep python
+mv /usr/bin/python /usr/bin/python2
+
+# 建立新的链接文件
+ln -s /usr/local/python3/bin/python3 /usr/bin/python
+ln -s /usr/local/python3/bin/python3 /usr/bin/python3
+
+
+
+# 安装pip
+curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
+python get-pip.py  # 仔细看最后的输出信息，可能会需要再执行一次
+
+# 创建pip的链接文件
+cd /usr/local/python3/bin
+./pip list
+ln -s /usr/local/python3/bin/pip /usr/bin/pip
+
+
+# 安装虚拟环境 virtualenv和virtualenvwrapper
+# 注意看最后的输出信息，看它是安装到哪了
+# 默认是会安装到 环境变量 python 当前python版本文件夹下的bin
+pip install virtualenv
+pip install virtualenvwrapper
+
+# 创建用来存放虚拟环境的文件夹
+# 将下面两行加入 ~/.bashrc 这个文件
+export WORKON_HOME=$HOME/Envs
+source /usr/local/python3/bin/virtualenvwrapper.sh
+
+
+source ~/.bashrc
+ln -s /usr/local/python3/bin/virtualenv /usr/bin/virtualenv
+
+# 创建虚拟环境
+mkvirtualenv pyblog
+
+
+# 显示或切换虚拟环境
+workon [envName]
+
+# 删除虚拟环境
+rmvirtualenv [envName]
+
+# 离开虚拟环境
+deactivate
+
+
+
+# 解决yum问题
+# 因为yum是依赖python，升级python后yum会出错
+# 修改第一行，将其解释器路径设置为python2
+vi /usr/bin/yum
+
+
+
+
+
+
+
+
+
+
+
+
+
+################################################################
+# 部署django-blog
+mkvirtualenv pyblog
+workon pyblog
+
+# 安装依赖
+pip install -i https://pypi.douban.com/simple django==1.9.8
+yum install mysql-devel
+pip install -i https://pypi.douban.com/simple mysqlclient
+pip install pillow
+pip install django-import-export==1.0.0
+pip install future==0.15.2
+pip install six==1.10.0
+pip install django-crispy-forms==1.6.1
+pip install django-formtools
+pip install httplib2
+
+# 在xadmin中集成富文本编辑器 DjangoUeditor
+# pypi或者github下下载源码进行pip安装
+# 或者直接拷贝文件夹到python环境中  ~/Envs/pyblog/lib/python3.6/site-packages
+# 在settings里注册app
+# 使用方法 github.com/zhangfisher/DjangoUeditor
+
+# 这边安装这个的时候报了个编码错误
+pip install django-pure-pagination
+# 修改centos系统编码
+vim /etc/locale.conf
+	LANG="en_US.UTF-8"
+source /etc/locale.conf
+locale
+# 配置好最后logout一下
+
+# 用django内置的服务器启动django  (8002端口)
+python manage.py migrate
+python manage.py runserver 0.0.0.0:8002
+
+# 访问 外网:8002
+# 配置项目settings
+ALLOWED_HOSTS = ['*']
+
+# 移植本地数据库
+# 因为原先我在本地win10环境上已经完成
+#####################################################################
+
+
+
+
+################################################################
+# 使用 uwsgi启动django (8001端口)
+	pip install uwsgi
+
+# 编写测试文件
+	vim test.py
+
+	def application(env, start_response):
+    	start_response('200 OK', [('Content-Type','text/html')])
+    	return [b"Hello World"]
+
+    uwsgi --http :8001 --wsgi-file test.py
+
+# 在项目根目录下 blogpy下创建 uwsgi配置文件
+vim blogpy_uwsgi.ini
+	# blogpy_uwsgi.ini file
+	[uwsgi]
+
+	# Django-related settings
+
+	# 让uWSGI作为单独的web-server时，用http
+	# 当配置 nginx+ uwsgi时，用socket
+	http = :8001
+	#socket = :8001
+
+	# the base directory (full path)
+	chdir           = /var/www/html_py/blogpy
+
+	# Django s wsgi file  项目目录下的wsgi文件
+	module          = blogpy.wsgi
+
+	# process-related settings
+	# master
+	master          = true
+
+	# maximum number of worker processes
+	processes       = 4
+
+	# ... with appropriate permissions - may be needed
+	# chmod-socket    = 664
+	# clear environment on exit
+	vacuum          = true
+
+
+
+# 在项目目录下，用配置文件启动 uwsgi
+workon pyblog
+uwsgi --ini /var/www/html_py/blogpy/blogpy_uwsgi.ini
+killall -9 uwsgi
+# 然后使用 127.0.0.1:8001 (根据自己上面配置的端口)
+#############################################################
+
+
+TODO:
+##############################################################
+# 配置nginx+uwsgi
+
+# 关闭nginx  重启reload
+/usr/local/nginx/sbin/nginx -s stop
+
+# 设置blogpy_uwsgi.ini配置文件, 设置为socket
+	socket = :8001
+# 启动 uwsgi
+	workon pyblog
+	uwsgi --ini /var/www/html_py/blogpy/blogpy_uwsgi.ini
+
+# 修改nginx的配置文件 (/usr/local/nginx/conf)
+vim /usr/local/nginx/conf/nginx.conf
+	server {
+        listen         8003; 
+        server_name    localhost
+        charset UTF-8;
+        access_log      /usr/local/nginx/logs/myweb_access.log;
+        error_log       /usr/local/nginx/logs/myweb_error.log;
+
+        client_max_body_size 75M;
+
+        location / {            
+            include  uwsgi_params;
+            uwsgi_pass  127.0.0.1:8001;
+            uwsgi_read_timeout 30;
+        }
+
+        location /static{
+        	alias /var/www/html_py/blogpy/static;
+        }
+    }
+
+# 重新启动nginx
+/usr/local/nginx/sbin/nginx -s stop
+/usr/local/nginx/sbin/nginx
+
+# 访问 127.0.0.1:8003
+

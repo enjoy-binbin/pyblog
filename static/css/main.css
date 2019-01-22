@@ -1,0 +1,410 @@
+li{
+	list-style-type: none;
+}
+.bTitle{
+	color: #E78B24;
+	font-size: 20px;
+	line-height: 20px;
+	text-decoration: none;
+}
+.bTitle:link{
+	color: #E78B24;
+}
+
+.bTitle:hover, .bTitle:focus{
+	color:#a6631a;
+	text-decoration: none;
+}
+.bTitle:hover, .bTitle:focus{
+	color:#a6631a;
+	text-decoration: none;
+}
+
+.bContent{
+	color: #333;
+	font-size: 14px;
+	line-height: 24px;
+	margin-top: 5px;
+}
+
+.icon{
+	font-size: 13px;
+	color: #999999;
+	margin-right: 20px;
+	line-height: 20px;
+}
+.excerpt{
+	border-left: solid 4px #FFFFFF;
+	border-top: 1px solid #EAEAEA;
+	border-right: 1px solid #EAEAEA;
+	border-bottom: 1px solid #EAEAEA;
+	background-color: #FFFFFF;
+	padding:15px;
+}
+
+.excerpt:hover{
+	border-left: solid 4px #abcdef;
+	background-color: #F9F9F9;
+}
+
+.footer{
+	font-size: 12px;
+	line-height: 20px;
+	padding: 16px 20px 14px;
+	color: #aaa;
+	background-color: #333;
+	border-left: 20px solid #e78b24;
+	margin-bottom: -200px;
+}
+
+.state{
+	background-color: #fff;
+	padding-top:15px;
+	padding-bottom:15px;
+	height: 70px;
+}
+
+.article{
+	background-color: #F7F7F7;
+	height: 40px;
+}
+.article-content{
+	height: 100%;
+	font-size: 16px;
+	background-color: #F7F7F7;
+	padding-top: 10px;
+	padding-left: 20px;
+	color: #666;
+}
+
+.box{
+	border-bottom:1px solid #EAEAEA;
+	padding-left: 10px;
+	padding-right: 10px;
+	background-color: #fff;
+}
+
+.box-content{
+	width: 100%;
+	height: 86px;
+}
+
+.box-content-btn{
+	float: right;
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+
+
+.tishi{
+	float: left;
+	width: 170px;
+	font-size: 12px;
+	line-height: 70px;
+	margin: 5px 0;
+	font-weight: bold;
+	border-right: 1px dashed #CCCCCC;
+}
+
+.form-inline{
+	height: 30px;
+	padding-top: 5px;
+	margin-top: 10px; 
+}
+
+.form-inline input{
+	border: 1px solid #D9D9D9;
+	padding: 5px 6px 3px;
+	margin-left: 10px;
+}
+
+.form-inline input:hover{
+	border: 1px solid #999999;
+}
+
+.help-inline{
+	font-size: 12px;
+	color: #7b7b7b;
+	padding-left: 12px;
+}
+
+
+.comments{
+	margin: 0;
+	font-size: 14px;
+	padding: 10px 20px;
+	line-height: 14px;
+	color: #999;
+	font-weight: normal;
+	border-bottom: dotted 1px #e6e6e6;
+}
+
+.answer_pic{
+	float: left;
+	height: 45px;
+	width: 45px;
+}
+
+.answer_content{
+	padding-top: 2px;
+	padding-left: 10px;
+	margin-left: 48px;
+	font-size: 14px;
+	color: #555555;
+}
+.answer_name{
+	padding-top: 5px;
+	padding-left: 13px;
+	margin-right: 10px;
+	float: left;
+	font-size: 13px;
+	color: #BBBBBB;
+}
+.answer_time{
+	padding-top: 5px;
+	font-size: 13px;
+	color: #BBBBBB;
+}
+
+
+
+.info{
+	border-right: 1px solid #EAEAEA;
+	border-bottom: 1px solid #EAEAEA;
+	background-color: #FFFFFF;
+	padding:15px;
+	padding-bottom: 10px;
+}
+
+.info_title{
+	margin: -16px;
+	background: linear-gradient(to right,#002E50,#B6DAFA,#001731);
+	border-radius:5px;
+	height: 80px;
+	padding-top: 6px;
+	text-align: center;
+	font-size: 14px;
+}
+
+.info_content{
+	font-size: 16px;	
+	line-height: 27px;
+}
+
+.info_content .code{
+	padding: 9.5px;
+	margin: 0 0 10px;
+	font-size: 13px;
+	color: #333;
+	background-color: #f5f5f5;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+}
+.keyword {
+	background: url(../img/keyword.png) no-repeat 10px center #F8F8F8;
+	line-height: 30px;
+	height: 30px;
+	padding-left: 40px;
+	border: 1px solid #F0F0F0;
+}
+.keyword span {
+	color: #099
+}
+.pre_next {
+	padding-top: 15px;
+}
+.pre_next a:link, a:visited {
+	 color: #333333;
+	 text-decoration: none;
+ }
+.pre_next a:hover{
+	color: #666666;
+}
+
+.weather {
+	background: url(../img/weather_bg.jpg) no-repeat;
+	height: 88px;
+	margin: 20px 0;
+	padding: 20px 0 0 75px;
+	padding-bottom: 100px;
+}
+
+.news h3{
+	font-size: 14px;
+	background: url(../img/r_title_bg.jpg) repeat-x center;
+}
+
+.news h3 p {
+	background: #FFFFFF;
+	width: 70px ;
+}
+
+.news h3 span {  color: #65b020  }
+.news h3.ph span { color: #37ccca; }
+.news h3.links span { color: #F17B6B; }
+
+.rank li {
+	margin-left: -40px;
+	height: 25px;
+	line-height: 25px;
+	overflow: hidden;
+	padding-left: 15px;
+	background: url(../img/li.jpg) no-repeat left center; }
+
+.rank li a { color: #333; }
+.paih li a{  color: #333;  }
+
+.paih {
+	background: url(../img/ph.jpg) no-repeat left 8px;
+	margin: 10px 0
+}
+.paih li {
+	margin-left: -40px;
+	line-height: 30px;
+	height: 31px;
+	overflow: hidden;
+	padding-left: 24px;
+	padding-top: 1px;
+	border-bottom: #CCC dotted 1px;
+}
+
+.website {
+	margin: 0;
+	padding: 0;
+	text-align: center;
+	color: black;
+	background: #F3F3F3;
+	border-radius: 50%;
+}
+
+.website a:hover{
+	color: #666666;
+}
+
+.website li { line-height: 26px; text-shadow: #fff 1px 1px 1px; height: 26px; }
+
+.title h2{
+	font-size: 20px;
+}
+.title{
+	margin: -15px;
+	/*background: linear-gradient(to right,#002E50,#B6DAFA,#001731);*/
+	background: #FBFBFB;
+	height: 85px;
+	padding-top: 1px;
+	border-bottom: 1px solid rgba(0,0,0,0.05);
+	padding-left: 15px;
+	color: #444444;
+}
+
+.title_info{
+	display: inline;
+	font-size: 13px;
+	margin-right: 20px;
+	padding-left: 10px;
+	color: #ABABAB;
+}
+
+.content p{
+	margin-top: 15px;
+}
+.cd-top {
+	position: fixed;
+	bottom: 40px;
+	right: 100px;
+	display: inline;
+	height: 40px;
+	width: 40px;
+	font-size: 20px;
+	line-height: 40px;
+	text-align: center;
+	visibility: hidden;
+	opacity: 0;
+	-webkit-transition: all 0.3s;
+	-moz-transition: all 0.3s;
+	transition: all 0.3s;
+}
+.cd-top.cd-is-visible {
+	/* the button becomes visible */
+	visibility: visible;
+	opacity: 1;
+}
+
+
+@media screen and (orientation:landscape){
+
+}
+/* 竖屏 */
+@media screen and (orientation:portrait){
+
+}
+
+/* 窗口宽度<1024,设计宽度=960 */
+/*@media screen and (max-width:1023px){  */
+@media screen and (max-width:1200px){
+	.weather{display: none}
+	.myBlockquote{
+		width: 50%;
+		float: left;
+	}
+	.myIntro{
+		float: left;
+		display: block;
+	}
+	.myJpg{
+		display: none;
+	}
+
+}
+
+/* 窗口宽度<960,设计宽度=768 */
+@media screen and (max-width:959px){
+	/*右侧图片隐藏*/
+
+}
+/* 窗口宽度<768,设计宽度=640 */
+@media screen and (max-width:767px){
+
+}
+/* 窗口宽度<640,设计宽度=480 */
+@media screen and (max-width:639px){
+	.myBlockquote{
+		width: 40%;
+	}
+	.myIntro{
+		padding-top: 12px;
+	}
+	.tishi{
+		width: 50%;
+		float: left;
+		display: inline;
+		line-height: 20px;
+	}
+	.myinput{
+		padding-left: 0;
+		margin-top: -10px;
+		margin-left: -10px;
+		float:left;
+		height: 50px;
+	}
+	.comments{
+		clear: both;
+		padding-top: 40px;
+		padding-left: 0px;
+	}
+
+}
+/* 窗口宽度<480,设计宽度=320 */
+@media screen and (max-width:479px){
+	.myBlockquote{
+		width: 45%;
+	}
+	.myIntro{
+		width: 50%;
+		padding-top: 15px;
+	}
+}
+
+@media screen and (max-width:360px){
+
+}

@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="row">
+            <div class="col-md-9">
+                <div class="row" style="padding-top:10px;background-color: #f4f4f4;border-bottom: 1px solid #EAEAEA;">
+                {% block categody_ %}
+                {% endblock %}
+                </div>
+
+            {% block article %}
+            {% endblock %}
+            <div class="row" style="border: 1px solid #EAEAEA;padding:5px;background-color: #f9f9f9">
+               <nav class="text-center">
+                    <ul class="pagination">
+                    {% if all_article.has_previous %}
+                        <li class="long"><a href="?{{ all_article.previous_page_number.querystring }}">上一页</a></li>
+                    {% endif %}
+                    {% for page in all_article.pages %}
+                        {% if page %}
+                            {% ifequal page all_article.number %}
+                                <li class="active"><a href="?page=1">{{ page }}</a></li>
+                            {% else %}
+                                <li><a href="?{{ page.querystring }}" class="page">{{ page }}</a></li>
+                            {% endifequal %}
+                        {% else %}
+                            <li class="none"><a href="">...</a></li>
+                        {% endif %}
+                    {% endfor %}
+                    {% if all_article.has_next %}
+                        <li class="long"><a href="?{{ all_article.next_page_number.querystring }}">下一页</a></li>
+                    {% endif %}
+                </ul>
+               </nav>
+            </div>
+{#            <div class="row" style="border: 1px solid #EAEAEA;padding:5px;background-color: #f9f9f9">#}
+{#                <nav class="text-center">#}
+{#                    <!-- pager -->#}
+{#                    <ul class="pagination" style="padding-bottom: 4px;">#}
+{#                        {{ all_article.render }}#}
+{#                    </ul>#}
+{#                </nav>#}
+{#            </div>#}
+        </div>
+        <div class="col-md-3" style="background:#FFFFFF">
+        <p><img src="{{ MEDIA_URL }}{{ category.image }}" class="img-rounded img-responsive" style="height: auto;width: 262.5px"></p>
+                    <div class="news" style="float: left">
+                    <h3>
+                        <p>最新<span>文章</span></p>
+                    </h3>
+                    <ul class="rank">
+                        {% for article in new_article %}
+                            <li><a href="#" title="{{ article.title }}" target="_blank">{{ article.title }}</a></li>
+                        {% endfor %}
+                    </ul>
+                    <h3 class="ph">
+                        <p>点击<span>排行</span></p>
+                    </h3>
+                    <ul class="paih">
+                        {% for article in hot_article %}
+                            <li><a href="#" title="{{ article.title }}" target="_blank">{{ article.title }}</a></li>
+                        {% endfor %}
+                    </ul>
+                    <h3 class="links">
+                        <p>推荐<span>网站</span></p>
+                    </h3>
+                    <ul class="website">
+                            <li><a href="" target="_blank">666</a></li>
+                    </ul>
+
+                </div>
+        </div>
+    </div>
+{% endblock %}
+

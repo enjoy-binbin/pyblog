@@ -1,0 +1,69 @@
+﻿{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="row">
+    <div class="col-md-9" style="padding-left:20px">
+        <div class="jumbotron">
+            <div class="container">
+                <p>这次。用python3 + django部署的博客<br></p>
+                <p>用nginx 监听着8003, 转发的 uwsgi:8001端口</p>
+                <footer>by 积极向丧的彬彬丶 from 2018年5月26日 14:53:24 <cite title="Source Title">Source Title</cite></footer>
+            </div>
+        </div>
+        <div class="jumbotron">
+            <div class="container">
+                <p>哈喽,这次主要是更新了下服务器, 配置了nginx+php7<br></p>
+                <p>8000端口运行着 nginx, 可以通过 <a href="#">http://www.zz-bin.cn:8000/blog/</a>来访问<br></p>
+                <footer>by飞翔的渣神丶 from 2017年3月1日 18:39:57 <cite title="Source Title">Source Title</cite></footer>
+            </div>
+        </div>
+        <div class="jumbotron">
+            <div class="container">
+                <p>哈喽又见面了,这里还是一个想飞翔的渣神的博客系统<br></p>
+                <p>时间是大二第一学期中旬,这段时间学习了laravel框架<br></p>
+                <p>于是乎,翻起这个博客系统,准备移植到laravel里面,顺便加了一个后台系统<br></p>
+                <p>移植过程中,发现linux中的环境并不能支持laravel,于是又费了一番功夫搞<br></p>
+                <p>环境: apache服务器,php脚本语言,mysql数据库,bootstarp框架,laravel框架<br></p>
+                <p>网站运行在 腾讯云 学生优惠服务器 系统为 Centos 7.2<br></p>
+                <footer>by飞翔的渣神丶 from 2016年11月10日 17:18:11 <cite title="Source Title">Source Title</cite></footer>
+            </div>
+        </div>
+        <div class="jumbotron">
+            <div class="container">
+                <p>哈喽,这是一个想飞翔的渣神的博客系统哦<br></p>
+                <p>时间是大一暑假,用TP框架搭建的一款博客系统,没有后台哦很简单<br></p>
+                <p>环境: apache服务器,php语言,mysql数据库,bootstarp框架,ThinkPHP框架<br></p>
+                <p>网站运行在 腾讯云 学生优惠服务器 系统为 Centos 6.7<br></p>
+                <footer>by飞翔的渣神丶 from 2016年8月15日 22:11:21 <cite title="Source Title">Source Title</cite></footer>
+            </div>
+        </div>
+        <!-- <blockquote>
+            <p>哈喽,这是一个想飞翔的渣神的博客系统哦<br></p>
+            <p>时间是大一暑假,用TP框架搭建的一款博客系统,没有后台哦很简单<br></p>
+            <p>环境: apache服务器,php语言,mysql数据库,bootstarp框架,ThinkPHP框架<br></p>
+            <p>网站运行在 腾讯云 学生优惠服务器 系统为 Centos 6.7<br></p>
+            <footer>by飞翔的渣神丶 from 2016年8月15日 22:11:21 <cite title="Source Title">Source Title</cite></footer>
+        </blockquote>
+        <blockquote>
+            <p>哈喽又见面了,这里还是一个想飞翔的渣神的博客系统<br></p>
+            <p>时间是大二第一学期中旬,这段时间学习了laravel框架<br></p>
+            <p>于是乎,翻起这个博客系统,准备移植到laravel里面,顺便加了一个后台系统<br></p>
+            <p>移植过程中,发现linux中的环境并不能支持laravel,于是又费了一番功夫搞<br></p>
+            <p>环境: apache服务器,php脚本语言,mysql数据库,bootstarp框架,laravel框架<br></p>
+            <p>网站运行在 腾讯云 学生优惠服务器 系统为 Centos 7.2<br></p>
+            <footer>by飞翔的渣神丶 from 2016年11月10日 17:18:11 <cite title="Source Title">Source Title</cite></footer>
+        </blockquote> -->
+    </div>
+    <div class="col-md-3">
+    <p><img src="/static/img/11.jpg" class="img-rounded img-responsive" style="height: auto;width: 262.5px"></p>
+    <p><img src="/static/img/14.jpg" class="img-rounded img-responsive" style="height: auto;width: 262.5px"></p>
+    <p><img src="/static/img/18.jpg" class="img-rounded img-responsive" style="height: auto;width: 262.5px"></p>
+    <span>没啥东西,放几个PC网页游戏</span><br>
+    <a href="#">贪吃蛇</a></br>
+    <a href="#">别踩白块儿</a></br>
+    <a href="#">五子棋</a></br>
+  </div>
+</div>
+
+{% endblock %}

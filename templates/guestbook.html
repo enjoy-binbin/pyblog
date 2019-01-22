@@ -1,0 +1,70 @@
+﻿{% extends 'base.html' %}
+{% load staticfiles %}
+{% block content %}
+
+    <div class="row">
+
+			<div class="col-md-9">
+				<div class="row" style="padding-top:10px;background-color: #f4f4f4;border-bottom: 1px solid #EAEAEA;">
+					<div class="col-md-4">
+						<blockquote class="myBlockquote">
+							<p>留言板</p>
+							<footer>飞翔的渣神丶<cite title="Source Title">Source Title</cite></footer>
+						</blockquote>
+					</div>
+					<div class="col-md-8 myIntro">
+						<p class="" style="height:80px;overflow: hidden">有什么好的意见建议</br>都能在这里提出来</br>欢迎吐槽</br>********</p>
+					</div>
+				</div>
+				<div class="row state">
+					<div class="article">
+						<div class="article-content">
+							<div class="glyphicon glyphicon-user"></div>&nbsp;&nbsp;发表我的评论
+						</div>
+					</div>
+				</div>
+				<div class="row box">
+					<form action="{% url 'guestbook' %}" method="post" onsubmit="update()">
+                        {% csrf_token %}
+						<div>
+							<textarea class="box-content" placeholder="写点什么..." name="content">{{ content }}</textarea>
+							<button class="btn btn btn-info box-content-btn">提交评论</button>
+							<div class="box-content-next">
+								<h4 class="tishi">Hi，您需要填写昵称等信息！</h4>
+								<ul class="myinput">
+									<li class="form-inline"><input type="text" value="{{ name }}" name="name" tabindex="2" placeholder="昵称"><span class="help-inline">昵称 (必填)</span></li>
+									<li class="form-inline"><input type="text" value="{{ website }}" name="website" tabindex="4" placeholder="网址"><span class="help-inline">网址 (选填)</span></li>
+								</ul>
+							</div>
+							<div class="comments">
+								网友最新评论<b>&nbsp;({{ guestbooks_count }})</b>
+							</div>
+						</div>
+					</form>
+                    {% for key, error in guestbook_form.errors.items %}
+                        <script>layer.msg("{{ error.0 }}!　", {icon:5});</script>
+                    {% endfor %}
+                    {% if msg %}
+                        <script>layer.msg("{{ msg }}!　", {icon:6});</script>
+                    {% endif %}
+				</div>
+                    {% for guestbook in guestbooks %}
+					<div class="row" style="border: 1px solid #EAEAEA;padding:5px;background-color: #f9f9f9">
+						<img src="{% static 'img/answer_pic.png' %}" class="answer_pic">
+						<div class="answer_content">{{ guestbook.content }}</div>
+						<div class="answer_name">{{ guestbook.name }}</div>
+						<div class="answer_time">{{ guestbook.add_time }}</div>
+					</div>
+                    {% endfor %}
+			</div>
+			<div class="col-md-3 myJpg">
+				<p><img src="{% static 'img/11.jpg' %}" class="img-rounded img-responsive" style="height: auto;width: 262.5px"></p>
+				<p><img src="{% static 'img/11.jpg' %}" class="img-rounded img-responsive" style="height: auto;width: 262.5px"></p>
+				<p><img src="{% static 'img/11.jpg' %}" class="img-rounded img-responsive" style="height: auto;width: 262.5px"></p>
+				<p><img src="{% static 'img/11.jpg' %}" class="img-rounded img-responsive" style="height: auto;width: 262.5px"></p>
+				<p><img src="{% static 'img/11.jpg' %}" class="img-rounded img-responsive" style="height: auto;width: 262.5px"></p>
+				<p><img src="{% static 'img/11.jpg' %}" class="img-rounded img-responsive" style="height: auto;width: 262.5px"></p>
+			</div>
+		</div>
+
+{% endblock %}

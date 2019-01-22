@@ -1,0 +1,39 @@
+﻿{% extends 'cate_base.html' %}
+
+{% block categody_ %}
+    <div class="col-md-4">
+        <blockquote>
+	    <p>{{ category.name }}模块</p>
+	    <footer>飞翔的渣神丶<cite title="Source Title">Source Title</cite></footer>
+	    </blockquote>
+    </div>
+    <div class="col-md-8">
+        <p style="height:80px;overflow: hidden">{{ category.desc }}</p>
+    </div>
+{% endblock %}
+
+
+{% block article %}
+    {% for article in all_article.object_list %}
+        <div class="row excerpt">
+			<div class="col-md-4">
+				<a href="{% url 'article' article.id %}">
+					<img src='{{ MEDIA_URL }}{{ article.image }}' class="img-rounded img-responsive" style="height: 150px;width: 250px">
+				</a>
+			</div>
+			<div class="col-md-8">
+				<p style="padding-top: 10px">
+					<a class="bTitle" href="{% url 'article' article.id %}">{{ article.title }}</a>
+				</p>
+				<span class="icon"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+                    {{ article.author }}</span>
+				<span class="icon"><span class="glyphicon glyphicon-time" aria-hidden="true"></span>
+                    {{ article.add_time }}</span>
+				<span class="icon"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span>
+                    {{ article.view_nums }}查看</span>
+				<p class="bContent">{{ article.desc }}</p>
+			</div>
+		</div>
+    {% endfor %}
+{% endblock %}
+

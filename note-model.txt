@@ -1,0 +1,19 @@
+﻿# pyblog model的设计
+
+
+# Users.UserProfile， 用户信息model
+	改造django原有的User
+	用于记录 每个用户的个人信息
+	
+
+# Articles.Article, 博客文章model
+	
+	
+# BlogArticle， 博客文章model
+
+
+
+# ArtcileCate
+
+
+# Comment 评论

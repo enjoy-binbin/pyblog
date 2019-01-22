@@ -1,0 +1,93 @@
+﻿{% extends 'base.html' %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-md-9">
+            <div class="row" style="padding-top:10px;background-color: #F7F7F7;border-bottom: 1px solid #EAEAEA;">
+                <div class="col-md-4">
+                    <blockquote>
+                    <p>文章页面</p>
+                    <footer>飞翔的渣神丶<cite title="Source Title">Source Title</cite></footer>
+                    </blockquote>
+                </div>
+                <div class="col-md-8">
+                    <ul style="color: #756F71;height:80px;overflow: hidden">
+                        <p>因为年轻, 所以肆无忌惮。</p>
+                        <p>三十年河东, 三十年河西。</p>
+                        <p>莫欺少年穷。</p>
+                    </ul>
+                </div>
+            </div>
+            <div class="row info">
+                <div class="title">
+                    <h2>{{ article.title }}</h2>
+                    <div>
+                        <div class="title_info"><span class="glyphicon glyphicon-th"></span>
+                            {{ article.category.name }}</div>
+                        <div class="title_info"><span class="glyphicon glyphicon-user"></span>{{ article.author }}</div>
+                        <div class="title_info"><span class="glyphicon glyphicon-time"></span>
+                            {{ article.add_time }}</div>
+                        <div class="title_info"><span class="glyphicon glyphicon-comment"></span>
+                            {{ article.view_nums }}查看</div>
+                    </div>
+                </div></br>
+                <div class="content" style="font-size: 16px;line-height: 27px;padding-top: 20px">
+                    {% autoescape off %}
+                    {{ article.content }}
+                    {% endautoescape %}
+                </div>
+                <div class="keyword">
+                    <p><span>关键字词</span>：{% for tag in tags %}{{ tag.name }}{% endfor %}
+                    </p>
+                </div>
+                <div class="pre_next">
+                    <p>上一篇：
+                        {% if article_pre %}
+                            <a href="{% url 'article' article_pre.id %}">{{ article_pre.title }}</a>
+                        {% else %}
+                            <span>没有上一篇了</span>
+                        {% endif %}
+                    </p>
+                    <p>下一篇：
+                        {% if article_next %}
+                            <a href="{% url 'article' article_next.id %}">{{ article_next.title }}</a>
+                        {% else %}
+                            <span>没有下一篇了</span>
+                        {% endif %}
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3" style="background:#FFFFFF">
+            <p>
+                <img src="{{ MEDIA_URL }}{{ article.image }}" class="img-rounded img-responsive" style="height: auto;width: 262.5px">
+            </p>
+            <div class="news" style="float: left">
+                <h3>
+                    <p>最新<span>文章</span></p>
+                </h3>
+                <ul class="rank">
+                    {% for article in new_article %}
+                        <li><a href="#" title="{{ article.title }}" target="_blank">{{ article.title }}</a></li>
+                    {% endfor %}
+                </ul>
+                <h3 class="ph">
+                    <p>点击<span>排行</span></p>
+                </h3>
+                <ul class="paih">
+                    {% for article in hot_article %}
+                        <li><a href="#" title="{{ article.title }}" target="_blank">{{ article.title }}</a></li>
+                    {% endfor %}
+                </ul>
+                <h3 class="links">
+                    <p>推荐<span>网站</span></p>
+                </h3>
+                <ul class="website">
+                        <li><a href="" target="_blank">666</a></li>
+                </ul>
+
+            </div>
+        </div>
+    </div>
+    <a href="#0" class="cd-top">Top</a>
+{% endblock %}
