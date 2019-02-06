@@ -1,11 +1,25 @@
 ### Update By binbin, 这个用到django1.98和py3.6，是非常简陋的一个博客系统吧。后台用了xadmin，勉强具有最基本的 对博文的增删改查。之后有时间会重新写一个。继续学习，算做记录。
 
+### xadmin后台 
+	`bin binbin123`
+
+### 根据requirements里的安装依赖
+
+### 执行数据迁移，或者导入数据库，使用的是mysql5.7
+
+### 后面就贴一下展示页啦。
+
+
+
+
+
+
+
+
+
+
+### 以前写的笔记。。。。。。。
 ### 开始用py3 搭建自己的Blog系统啦
-
-### sbb。。。 18.09.14
-
-
-### 开始
 ### 首先建立 py3的虚拟环境拉。
 	mkvirtualenv pyblog --python=C:\Users\Administrator\AppData\Local\Programs\Python\Python36\python.exe
 	
