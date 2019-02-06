@@ -9,12 +9,22 @@
 
 ### 后面就贴一下展示页啦。
 
+![image](https://github.com/enjoy-binbin/pyblog/blob/master/1-index.png)
+![image](https://github.com/enjoy-binbin/pyblog/blob/master/2-guestbook.png)
+![image](https://github.com/enjoy-binbin/pyblog/blob/master/3-category.png)
+![image](https://github.com/enjoy-binbin/pyblog/blob/master/4-article.png)
+![image](https://github.com/enjoy-binbin/pyblog/blob/master/5-xadmin.png)
 
 
 
 
+----------
 
+----------
 
+----------
+
+----------
 
 
 
