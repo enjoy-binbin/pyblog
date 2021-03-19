@@ -19,7 +19,7 @@ cssselect==1.0.1
 cycler==0.10.0
 decorator==4.2.1
 Django==1.11.3
-djangorestframework==3.6.3
+djangorestframework==3.11.2
 entrypoints==0.2.3
 enum34==1.1.6
 Flask==0.12.2
