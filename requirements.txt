@@ -76,7 +76,7 @@ pyparsing==2.2.0
 pytesseract==0.2.0
 python-dateutil==2.6.1
 pytz==2017.3
-pywin32==221
+pywin32==301
 pywinpty==0.5.1
 pyzmq==16.0.4
 qrcode==6.0
